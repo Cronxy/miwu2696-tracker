@@ -1,0 +1,11 @@
+{
+  "name": "miwu2696-tracker",
+  "version": "1.0.0",
+  "description": "DECO2017Tracker",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Zel",
+  "license": "ISC"
+}
