@@ -1,0 +1,33 @@
+html {
+    height: 100%;
+    width: 100%;
+    font-family: Rockwell, Garamond, Georgia;
+    background-color: rgb(251, 239, 226);
+  }
+                  
+  header > h1 {
+    text-align: center;
+    color: rgb(43, 46, 24);
+  }
+                  
+  form {
+    max-width: 500px;
+    margin: 0 auto;
+    border: 2px solid grey;
+    padding: 2em 1em;
+  }
+                  
+  .form-row {
+    display: flex;
+    justify-content: flex-end;
+    padding: .5em;
+  }
+                  
+  .form-row > label {
+    width: 100px;
+  }
+                  
+  .form-row > input {
+    padding: .5em;
+    flex-grow: 1;
+  }
