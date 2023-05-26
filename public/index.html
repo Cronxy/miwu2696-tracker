@@ -1,49 +1,25 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>Task list</title>
-  <link href="scss/main.scss" rel="stylesheet" type="text/css" />
+    <title>Your Digital Album Collection Library</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-
 <body>
-<header><h1>Task Tracker</h1></header>
-<form id="taskform">
-<div class="form-row">
-  <label for="taskName">Name</label>
-  <input type="text" name="taskName" id="taskName" required="true" />
-</div>
+    <div class="sticky">
+        <div class="icon">☰</div> <!-- Replace this with your preferred icon -->
+        <div class="title">
+            <b>Your digital album <br> collection library</b>
+        </div>
+       <input type="text" id="searchBar" class="hidden" placeholder="🔍Find anything?" />
+        <div class="icon" id="searchIcon">🔍</div> <!-- Replace this with your preferred icon -->
+    </div>
+    <div class="hero">
+        <h1>Your <br> Digital Album Collection</h1>
+        <img src="pics/lucia-garo-gExmKBFk118-unsplash.jpg" alt="Vinyl Store">
+    </div>
+    <!-- other parts of your website goes here -->
 
-<div class="form-row">
-  <label for="taskType">Type</label>
-  <input type="text" name="taskType" id="taskType" required="true" />
-</div>
-
-<div class="form-row">
-  <label for="taskRate">Rate</label>
-  <input type="text" name="taskRate" id="taskRate" required="true" />
-</div>
-
-<div class="form-row">
-  <label for="taskTime">Time</label>
-  <input type="text" name="taskTime" id="taskTime" required="true" />
-</div>
-
-<div class="form-row">
-  <label for="taskClient">Client</label>
-  <input type="text" name="taskClient" id="taskClient" required="true" />
-</div>
-
-<div class="form-row">
-  <input type="submit">
-</div>
-</form>
-  
-<h2>Tasks</h2>
-<ul id="tasklist"></ul>
-<script src="script.js"></script>
+  <div id="results"></div>
+  <script src="search.js"></script>
 </body>
-
 </html>
