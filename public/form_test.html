@@ -21,21 +21,34 @@
     <label for="releaseYear">Release Year:</label><br>
     <input type="number" id="releaseYear" name="releaseYear" min="1900" max="2099" required> <br>
 
-    <label for="genre">Genre:</label><br>
-    <select id="genre" name="genre">
-        <!-- add genre options with corresponding emojis -->
-        <option value="">Select a genre...</option>
-        <option value="rock">🎸 Rock</option>
-        <option value="pop">🎤 Pop</option>
-        <option value="hiphop">🎧 Hip Hop</option>
-        <option value="country">🤠 Country</option>
-        <option value="jazz">🎷 Jazz</option>
-        <option value="classical">🎻 Classical</option>
-        <option value="electronic">⚡ Electronic</option>
-        <option value="blues">🎙️ Blues</option>
-        <option value="reggae">🏝️ Reggae</option>
-        <option value="metal">🤘 Metal</option>
-    </select><br>
+    <!-- genre radio list as drop down menu -->
+    <div class="dropdown">
+        <button class="dropbtn">Genre</button>
+        <div class="dropdown-content">
+        <input type="radio" id="rock" name="genre" value="rock">  
+          <label for="rock">🎸 Rock</label><br>
+
+         <input type="radio" id="pop" name="genre" value="pop">
+            <label for="pop">🎤 Pop</label><br>
+            
+            <input type="radio" id="hiphop" name="genre" value="hiphop">
+            <label for="hiphop">🎧 Hip Hop</label><br>
+            
+            <input type="radio" id="country" name="genre" value="country">
+            <label for="country">🤠 Country</label><br>
+            <input type="radio" id="jazz" name="genre" value="jazz">
+            <label for="jazz">🎷 Jazz</label><br>
+            <input type="radio" id="classical" name="genre" value="classical">
+            <label for="classical">🎻 Classical</label><br>
+            <input type="radio" id="edm" name="genre" value="edm">
+            <label for="edm">🎹 EDM</label><br>
+            <input type="radio" id="blues" name="genre" value="blues">
+            <label for="blues">🎙️ Blues</label><br>
+            <input type="radio" id="reggae" name="genre" value="reggae">
+            <label for="reggae">🏝️ Reggae</label><br>
+            <input type="radio" id="metal" name="genre" value="metal">
+            <label for="metal">🤘 Metal</label><br>
+</div>
 
     <label for="durationMin">Duration:</label>
     <input type="number" id="durationMin" name="durationMin" min="0" placeholder="Minutes" required>
