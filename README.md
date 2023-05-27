@@ -21,3 +21,5 @@ In my case, it is difficult to figure out a way to obtain these Spotify URLs bas
 6. Changes made about use states like the searchb function and user confirmation for deleting and adding an item
 
 7. Relevant typography, colour schemes, and branding elements' consistency to a cohesive appearance of prototype. Considering of UI design trends and design patterns to enhance appeal
+
+8. Stylish form formatting reference(https://codepen.io/sudheer-ranga/pen/yOqBQB)

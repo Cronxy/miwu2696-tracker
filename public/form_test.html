@@ -33,7 +33,7 @@
 
   <!-- Genre drop down menu -->
   <div class="input-group">
-    <label for="genre">Genre:</label><br>
+    <label for="genre"><b>Genre:</b></label><br>
     <select id="genre" name="genre" class="custom-input" required>
       <option value="">Select a genre...</option>
       <option value="rock">🎸 Rock</option>
@@ -52,13 +52,13 @@
 
   <!-- Duration -->
   <div class="input-group">
-    <input type="number" id="durationMin" name="durationMin" min="0" class="custom-input" placeholder="Minutes" required>
+    <input type="number" id="durationMin" name="durationMin" min="0" class="custom-input" placeholder="                            Minutes" required>
     <input type="number" id="durationSec" name="durationSec" min="0" max="59" class="custom-input" placeholder="Seconds" required>
     <label for="durationMin">Duration:</label>
   </div>
 
   <!-- User Rating -->
-  <label for="userRating">User Rating:</label>
+  <label for="userRating"><b>User Rating:</b></label>
 <div class="star-rating">
     <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="5 stars">&#9734;</label>
     <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="4 stars">&#9734;</label>
@@ -68,9 +68,10 @@
 </div><br>
 
 <!-- User Comment -->
-<label for="userComment">User Comment:</label><br>
-    <textarea id="userComment" name="userComment" maxlength="100"></textarea><br>
-    <input type="submit" value="Submit">
+<label for="userComment"><b>User Comment:</b></label><br>
+    <textarea id="userComment" name="userComment" maxlength="100" placeholder="Write something about this album?"></textarea><br>
+
+<input type="submit" value="Submit">
 
 <script src="formScript.js"></script>
 </body>
