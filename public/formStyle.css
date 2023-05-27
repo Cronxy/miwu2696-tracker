@@ -130,7 +130,7 @@ textarea:focus {
 .star-rating label:hover, 
 .star-rating label:hover ~ label, 
 .star-rating input:checked ~ label {
-    color: #f5d130; 
+    color: #242323; 
     /* Color of the stars when hovered or checked */
 }
 
