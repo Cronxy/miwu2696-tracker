@@ -10,64 +10,67 @@
 
 <body>
 <form id="newAlbumForm">
-    <label for="albumName">Album Name:</label><br>
-    <input type="text" id="albumName" name="albumName" list="albumList"><br>
-    <datalist id="albumList"></datalist>
 
-    <label for="artistName">Artist:</label><br>
-    <input type="text" id="artistName" name="artistName" list="artistList"><br>
-    <datalist id="artistList"></datalist>
+    <!-- Album Name -->
+  <div class="input-group">
+    <input type="text" id="albumName" name="albumName" class="custom-input" list="albumList" required>
+    <label for="albumName">Album Name:</label>
+  </div>
+  <datalist id="albumList"></datalist>
 
-    <label for="releaseYear">Release Year:</label><br>
-    <input type="number" id="releaseYear" name="releaseYear" min="1900" max="2099" required> <br>
+  <!-- Artist -->
+  <div class="input-group">
+    <input type="text" id="artistName" name="artistName" class="custom-input" list="artistList" required>
+    <label for="artistName">Artist:</label>
+  </div>
+  <datalist id="artistList"></datalist>
 
-    <!-- genre radio list as drop down menu -->
-    <div class="dropdown">
-        <button class="dropbtn">Genre</button>
-        <div class="dropdown-content">
-        <input type="radio" id="rock" name="genre" value="rock">  
-          <label for="rock">🎸 Rock</label><br>
+  <!-- Release Year -->
+  <div class="input-group">
+    <input type="number" id="releaseYear" name="releaseYear" min="1900" max="2099" class="custom-input" required>
+    <label for="releaseYear">Release Year:</label>
+  </div>
 
-         <input type="radio" id="pop" name="genre" value="pop">
-            <label for="pop">🎤 Pop</label><br>
-            
-            <input type="radio" id="hiphop" name="genre" value="hiphop">
-            <label for="hiphop">🎧 Hip Hop</label><br>
-            
-            <input type="radio" id="country" name="genre" value="country">
-            <label for="country">🤠 Country</label><br>
-            <input type="radio" id="jazz" name="genre" value="jazz">
-            <label for="jazz">🎷 Jazz</label><br>
-            <input type="radio" id="classical" name="genre" value="classical">
-            <label for="classical">🎻 Classical</label><br>
-            <input type="radio" id="edm" name="genre" value="edm">
-            <label for="edm">🎹 EDM</label><br>
-            <input type="radio" id="blues" name="genre" value="blues">
-            <label for="blues">🎙️ Blues</label><br>
-            <input type="radio" id="reggae" name="genre" value="reggae">
-            <label for="reggae">🏝️ Reggae</label><br>
-            <input type="radio" id="metal" name="genre" value="metal">
-            <label for="metal">🤘 Metal</label><br>
-</div>
+  <!-- Genre drop down menu -->
+  <div class="input-group">
+    <label for="genre">Genre:</label><br>
+    <select id="genre" name="genre" class="custom-input" required>
+      <option value="">Select a genre...</option>
+      <option value="rock">🎸 Rock</option>
+      <option value="pop">🎤 Pop</option>
+      <option value="hiphop">🎧 Hip Hop</option>
+      <option value="country">🤠 Country</option>
+      <option value="jazz">🎷 Jazz</option>
+      <option value="classical">🎻 Classical</option>
+      <option value="electronic">🔊 Electronic</option>
+      <option value="blues">🎙️ Blues</option>
+      <option value="reggae">🏝️ Reggae</option>
+      <option value="metal">🤘 Metal</option>
+    </select>
+    
+  </div>
 
+  <!-- Duration -->
+  <div class="input-group">
+    <input type="number" id="durationMin" name="durationMin" min="0" class="custom-input" placeholder="Minutes" required>
+    <input type="number" id="durationSec" name="durationSec" min="0" max="59" class="custom-input" placeholder="Seconds" required>
     <label for="durationMin">Duration:</label>
-    <input type="number" id="durationMin" name="durationMin" min="0" placeholder="Minutes" required>
-    <input type="number" id="durationSec" name="durationSec" min="0" max="59" placeholder="Seconds" required>
+  </div>
 
-   <label for="userRating">User Rating:</label>
-    <div class="star-rating">
-        <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="5 stars">☆</label>
-        <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="4 stars">☆</label>
-        <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="3 stars">☆</label>
-        <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="2 stars">☆</label>
-        <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="1 star">☆</label>
-    </div>
+  <!-- User Rating -->
+  <label for="userRating">User Rating:</label>
+<div class="star-rating">
+    <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="5 stars">&#9734;</label>
+    <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="4 stars">&#9734;</label>
+    <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="3 stars">&#9734;</label>
+    <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="2 stars">&#9734;</label>
+    <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="1 star">&#9734;</label>
+</div><br>
 
-    <label for="userComment">User Comment:</label><br>
+<!-- User Comment -->
+<label for="userComment">User Comment:</label><br>
     <textarea id="userComment" name="userComment" maxlength="100"></textarea><br>
-
     <input type="submit" value="Submit">
-</form>
 
 <script src="formScript.js"></script>
 </body>
