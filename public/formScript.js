@@ -14,13 +14,22 @@ document.getElementById("artistName").addEventListener("input", (event) => {
   
   document.getElementById("newAlbumForm").addEventListener("submit", function (e) {
     e.preventDefault();
+    //   chechking if the duration user input if valid 
       var minutes = document.getElementById("durationMin").value;
       var seconds = document.getElementById("durationSec").value;
-    //   chechking if the duration user input if valid 
       if (seconds > 59) {
-          alert("Seconds should be less than 60.");
+          alert("⏰ Seconds should be less than 60.");
           return false;
       }
+
+      //   chechking if the release year user input if valid 
+      var releaseYear = document.getElementById("releaseYear").value;
+      var currentYear = new Date().getFullYear();
+      if (releaseYear > currentYear) {
+          alert("😳⚠️Oooops ERROR! Release Year should not be in the future.");
+          return false;
+      }
+
       const album = {
           id: new Date().getTime().toString(),
           dateAdded: new Date().toLocaleString(),
