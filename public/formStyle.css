@@ -134,23 +134,6 @@ textarea:focus {
     color: #242323;  
 }
 
-/*  */
-/* user rating in star form in list */
-
-
-/* targting the duration label*/
-/* .input-group input:nth-child(1):focus + label,
-.input-group input:nth-child(1):valid + label {
-  box-shadow: 0 0 4px rgba(255, 255, 255, 0.5);
-  transform: translateX(-100%);
-}
-
-.input-group input:nth-child(3):focus + label,
-.input-group input:nth-child(3):valid + label {
-  box-shadow: 0 0 4px rgba(255, 255, 255, 0.5);
-  transform: translateX(-100%);
-} */
-
 /* album list view  */
 .album-card {
   display: flex;
@@ -210,6 +193,3 @@ textarea:focus {
 .album-genre.metal {
   background-color: #aa72b89d;
 }
-
-/* view more button */
-

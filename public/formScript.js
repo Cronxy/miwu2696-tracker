@@ -108,11 +108,14 @@ if (albums) {
 }
 });
 
-
-// fx for generating album list card
 function createAlbumCard(album) {
   var card = document.createElement("div");
   card.className = "album-card";
+
+  var deleteCheckbox = document.createElement("input");
+  deleteCheckbox.type = "checkbox";
+  deleteCheckbox.className = "delete-checkbox";
+  card.appendChild(deleteCheckbox);
 
   var cover = document.createElement("div");
   cover.className = "album-cover";
@@ -133,7 +136,6 @@ function createAlbumCard(album) {
   artist.textContent = album.artist;
   details.appendChild(artist);
 
-  // create div container to hold these two elements, middle dot between
   var infoContainer = document.createElement("div");
   infoContainer.className = "info-container";
 
@@ -152,7 +154,6 @@ function createAlbumCard(album) {
 
   details.appendChild(infoContainer);
 
-  // 
   var ratingAndMore = document.createElement("div");
   ratingAndMore.className = "album-rating-more";
 
@@ -171,8 +172,7 @@ function createAlbumCard(album) {
   moreButton.style.fontSize = "12px"; 
   moreButton.style.margin = "4px 2px"; 
   moreButton.style.cursor = "pointer"; 
-  moreButton.type = "button"; // specify type "button" to prevent form submission
-
+  moreButton.type = "button"; 
 
   var moreDetails = document.createElement("div");
   moreDetails.className = "more-details";
@@ -187,8 +187,6 @@ function createAlbumCard(album) {
   duration.textContent = "Duration: " + album.duration;
   moreDetails.appendChild(duration);
 
-
-// oneclick view more/view less control
   moreButton.onclick = function() {
     if (moreDetails.style.display === "none") {
       moreDetails.style.display = "block";
