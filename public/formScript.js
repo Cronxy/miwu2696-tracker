@@ -13,7 +13,7 @@ document.getElementById("artistName").addEventListener("input", (event) => {
     }
   });
   
-  document.getElementById("newAlbumForm").addEventListener("submit", async function (e) {
+  document.getElementById("newAlbumForm").addEventListener("submit", function (e) {
     e.preventDefault();
 
     //   chechking if the duration user input if valid 
@@ -32,33 +32,26 @@ document.getElementById("artistName").addEventListener("input", (event) => {
           return false;
       }
 
-      try {
-        // Requesting the album cover image URL using the album-art js library
-        const imageUrl = await albumArt(document.getElementById("artistName").value, {album: document.getElementById("albumName").value, size: 'medium'});
+      const album = {
+        id: new Date().getTime().toString(),
+        dateAdded: new Date().toLocaleString(),
+        name: document.getElementById("albumName").value,
+        artist: document.getElementById("artistName").value,
+        releaseYear: document.getElementById("releaseYear").value,
+        genre: document.getElementById("genre").value,
+        duration: minutes + " min " + seconds + " sec",
+        imageURL: "./genre_pics/" + document.getElementById("genre").value.toLowerCase() + ".png",
+        userRating: document.querySelector('input[name="rating"]:checked').value,
+        userComment: document.getElementById("userComment").value,
+    };
 
-        const album = {
-            id: new Date().getTime().toString(),
-            dateAdded: new Date().toLocaleString(),
-            name: document.getElementById("albumName").value,
-            artist: document.getElementById("artistName").value,
-            releaseYear: document.getElementById("releaseYear").value,
-            genre: document.getElementById("genre").value,
-            duration: minutes + " min " + seconds + " sec",
-            imageURL: imageUrl,
-            userRating: document.querySelector('input[name="rating"]:checked').value,
-            userComment: document.getElementById("userComment").value,
-        };
+    console.log(album);
 
-        console.log(album);
+    // Success message
+    alert("Album successfully added!");
 
-        // Clear the form after successful submission
-        document.getElementById("newAlbumForm").reset();
-
-        // Display a success message after form submission
-        alert("Form Submitted Successfully!");
-    } catch (error) {
-        console.error('Error:', error);
-    }
+    // Clear form
+    document.getElementById("newAlbumForm").reset();
 });
   
   // MusicBrainz API settings for auto-generating album/artist lists

@@ -26,3 +26,5 @@ In my case, it is difficult to figure out a way to obtain these Spotify URLs bas
 8. Stylish form formatting reference(https://codepen.io/sudheer-ranga/pen/yOqBQB)
 
 9. Form Accessibility: Add aria-* attributes to enhance the form's accessibility. This is important for users using assistive technology to navigate the web.
+
+10. Tried to fetch album cover picture url using (https://github.com/lacymorrow/album-art), but as it using Spotify API, the 'albumArt' call failed might because of authorization of the API credentials
