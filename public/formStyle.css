@@ -127,11 +127,11 @@ textarea:focus {
     cursor: pointer;
 }
 
+/* Color of the stars when hovered or checked */
 .star-rating label:hover, 
 .star-rating label:hover ~ label, 
 .star-rating input:checked ~ label {
-    color: #242323; 
-    /* Color of the stars when hovered or checked */
+    color: #242323;  
 }
 
 /* targting the duration label*/
@@ -148,49 +148,57 @@ textarea:focus {
 } */
 
 /* album list view  */
-/* .album {
-  margin: 1em 0;
-  padding: 1em;
-  border: 1px solid #ddd;
-}
-.album img {
-  width: 100px;
-  height: 100px;
-}
-.album h2, .album p {
-  margin: 0.5em 0;
-} */
-
-#albumList {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  padding: 1em;
-  gap: 2em;
-}
-
 .album-card {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.3s;
-  width: 25%;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  text-align: center;
-  background: white;
-  border-radius: 5px;
-  overflow: hidden;
+  padding: 20px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  /* background: #b0a5a5; */
 }
 
-.album-card img {
-  width: 100%;
-  object-fit: cover;
+.album-cover img {
+  height: 100px;
+  width: 100px;
 }
 
-.album-info {
-  padding: 1em;
+.album-details h3, .album-details p {
+  margin: 0;
 }
 
-.album-card:hover {
-  transform: scale(1.05);
+/* genre background color identification */
+.album-genre {
+  padding: 2px 5px;
+  margin-top: 10px;
+  display: inline-block;
+}
+
+.album-genre.rock {
+  background-color: #a86a6a;
+}
+
+.album-genre.pop {
+  background-color: #b27e64;
+}
+
+.album-genre.hiphop {
+  background-color: #b085279d;
+}
+
+.album-genre.country {
+  background-color: #8490429d;
+}
+
+.album-genre.jazz {
+  background-color: #4d8e8a9d;
+}
+
+.album-genre.electronic {
+  background-color: #609cd49d;
+}
+
+.album-genre.metal {
+  background-color: #aa72b89d;
 }

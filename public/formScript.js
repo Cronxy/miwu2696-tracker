@@ -121,42 +121,63 @@ window.addEventListener("DOMContentLoaded", (event) => {
 // });
 
 function createAlbumCard(album) {
-  var div = document.createElement("div");
-  div.className = "album-card";
+  var card = document.createElement("div");
+  card.className = "album-card";
+
+  var cover = document.createElement("div");
+  cover.className = "album-cover";
 
   var img = document.createElement("img");
-  img.src = album.imageURL;  // Replace placeholder with album.imageURL
+  img.src = album.imageURL;
   img.alt = "Album Art";
+  cover.appendChild(img);
 
-  var info = document.createElement("div");
-  info.className = "album-info";
+  var details = document.createElement("div");
+  details.className = "album-details";
 
   var title = document.createElement("h3");
   title.textContent = album.name;
+  details.appendChild(title);
 
   var artist = document.createElement("p");
   artist.textContent = album.artist;
+  details.appendChild(artist);
+
+  // var genre = document.createElement("p");
+  // genre.className = "album-genre";
+  // genre.textContent = album.genre;
+  // details.appendChild(genre);
 
   var genre = document.createElement("p");
+  genre.className = "album-genre " + album.genre.toLowerCase();
   genre.textContent = album.genre;
+  details.appendChild(genre);
 
   var year = document.createElement("p");
   year.textContent = album.releaseYear;
+  details.appendChild(year);
+
+  var ratingAndMore = document.createElement("div");
+  ratingAndMore.className = "album-rating-more";
 
   var rating = document.createElement("p");
   rating.textContent = album.userRating;
+  ratingAndMore.appendChild(rating);
 
-  info.appendChild(title);
-  info.appendChild(artist);
-  info.appendChild(genre);
-  info.appendChild(year);
-  info.appendChild(rating);
+  var moreButton = document.createElement("button");
+  moreButton.textContent = "View More";
+  moreButton.onclick = function() { 
+      alert('User comment: ' + album.userComment + '\nDuration: ' + album.duration); 
+  };
+  ratingAndMore.appendChild(moreButton);
 
-  div.appendChild(img);
-  div.appendChild(info);
+  card.appendChild(cover);
+  card.appendChild(details);
+  card.appendChild(ratingAndMore);
 
-  return div;
+  return card;
 }
+
 
 // event listener for monitoring user submission
 document.querySelector('form').addEventListener('submit', function(e) {
