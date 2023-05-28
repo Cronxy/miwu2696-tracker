@@ -13,28 +13,28 @@
 
     <!-- Album Name -->
   <div class="input-group">
-    <input type="text" id="albumName" name="albumName" class="custom-input" list="albumList" required>
+    <input type="text" id="albumName" name="albumName" class="custom-input" list="albumList" required aria-label="Album Name" aria-required="true">
     <label for="albumName">Album Name:</label>
   </div>
   <datalist id="albumList"></datalist>
 
   <!-- Artist -->
   <div class="input-group">
-    <input type="text" id="artistName" name="artistName" class="custom-input" list="artistList" required>
+    <input type="text" id="artistName" name="artistName" class="custom-input" list="artistList" required aria-label="Artist Name" aria-required="true">
     <label for="artistName">Artist:</label>
   </div>
   <datalist id="artistList"></datalist>
 
   <!-- Release Year -->
   <div class="input-group">
-    <input type="number" id="releaseYear" name="releaseYear" min="1900" max="2099" class="custom-input" required>
+    <input type="number" id="releaseYear" name="releaseYear" min="1900" max="2099" class="custom-input" required aria-label="Release Year" aria-required="true">
     <label for="releaseYear">Release Year:</label>
   </div>
 
   <!-- Genre drop down menu -->
   <div class="input-group">
     <label for="genre"><b>Genre:</b></label><br>
-    <select id="genre" name="genre" class="custom-input" required>
+    <select id="genre" name="genre" class="custom-input" required aria-label="Genre" aria-required="true>
       <option value="">Select a genre...</option>
       <option value="rock">🎸 Rock</option>
       <option value="pop">🎤 Pop</option>

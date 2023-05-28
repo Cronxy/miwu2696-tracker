@@ -1,3 +1,4 @@
+// DOM elements for targeting each user input fields
 document.getElementById("artistName").addEventListener("input", (event) => {
     let query = event.target.value;
     if(query.trim() !== '') {
@@ -45,8 +46,8 @@ document.getElementById("artistName").addEventListener("input", (event) => {
       console.log(album);
   });
   
+  // MusicBrainz API settings for auto-generating album/artist lists
   function searchMusicBrainz(entity, query) {
-    // API settings
     fetch(`https://musicbrainz.org/ws/2/${entity}?query=${query}&fmt=json`)
         .then(response => response.json())
         .then(data => {
