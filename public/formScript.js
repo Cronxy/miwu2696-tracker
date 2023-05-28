@@ -77,7 +77,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
   }
 });
 
-// album list card content
+// generating album list card
 window.addEventListener("DOMContentLoaded", (event) => {
   let albums = localStorage.getItem("albums");
   if (albums) {

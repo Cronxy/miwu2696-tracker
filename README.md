@@ -28,3 +28,5 @@ In my case, it is difficult to figure out a way to obtain these Spotify URLs bas
 9. Form Accessibility: Add aria-* attributes to enhance the form's accessibility. This is important for users using assistive technology to navigate the web.
 
 10. Tried to fetch album cover picture url using (https://github.com/lacymorrow/album-art), but as it using Spotify API, the 'albumArt' call failed might because of authorization of the API credentials
+
+11. As the card content will be dynamiclly shown by the js code, initially it seems to be stuck on the same section, as the div with id="albumList" are siblings, not sure where the CSS code has conflict which forcing the list section to appear inside the form. 
