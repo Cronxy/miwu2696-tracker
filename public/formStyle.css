@@ -146,3 +146,39 @@ textarea:focus {
   box-shadow: 0 0 4px rgba(255, 255, 255, 0.5);
   transform: translateX(-100%);
 } */
+
+/* album list view  */
+/* .album {
+  margin: 1em 0;
+  padding: 1em;
+  border: 1px solid #ddd;
+}
+.album img {
+  width: 100px;
+  height: 100px;
+}
+.album h2, .album p {
+  margin: 0.5em 0;
+} */
+
+#albumList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 1em;
+}
+.album-card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 40%;
+  margin: 1em;
+}
+.album-card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+.container {
+  padding: 0.5em;
+}
+.album-card img {
+  width: 100%;
+}
