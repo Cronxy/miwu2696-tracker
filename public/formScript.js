@@ -78,47 +78,116 @@ window.addEventListener("DOMContentLoaded", (event) => {
 });
 
 // generating album list card
-window.addEventListener("DOMContentLoaded", (event) => {
-  let albums = localStorage.getItem("albums");
-  if (albums) {
-      albums = JSON.parse(albums);
-      let albumList = document.getElementById("albumList");
-      for (let i = 0; i < albums.length; i++) {
-          let albumDiv = document.createElement("div");
-          albumDiv.className = "album-card";
+// window.addEventListener("DOMContentLoaded", (event) => {
+//   let albums = localStorage.getItem("albums");
+//   if (albums) {
+//       albums = JSON.parse(albums);
+//       let albumList = document.getElementById("albumList");
+//       for (let i = 0; i < albums.length; i++) {
+//           let albumDiv = document.createElement("div");
+//           albumDiv.className = "album-card";
 
-          let coverImg = document.createElement("img");
-          coverImg.src = albums[i].imageURL;
-          albumDiv.appendChild(coverImg);
+//           let coverImg = document.createElement("img");
+//           coverImg.src = albums[i].imageURL;
+//           albumDiv.appendChild(coverImg);
 
-          let container = document.createElement("div");
-          container.className = "container";
+//           let container = document.createElement("div");
+//           container.className = "container";
 
-          let titleH2 = document.createElement("h2");
-          titleH2.textContent = albums[i].name;
-          container.appendChild(titleH2);
+//           let titleH2 = document.createElement("h2");
+//           titleH2.textContent = albums[i].name;
+//           container.appendChild(titleH2);
 
-          let artistP = document.createElement("p");
-          artistP.textContent = "Artist: " + albums[i].artist;
-          container.appendChild(artistP);
+//           let artistP = document.createElement("p");
+//           artistP.textContent = "Artist: " + albums[i].artist;
+//           container.appendChild(artistP);
 
-          let genreP = document.createElement("p");
-          genreP.textContent = "Genre: " + albums[i].genre;
-          container.appendChild(genreP);
+//           let genreP = document.createElement("p");
+//           genreP.textContent = "Genre: " + albums[i].genre;
+//           container.appendChild(genreP);
 
-          let yearP = document.createElement("p");
-          yearP.textContent = "Release Year: " + albums[i].releaseYear;
-          container.appendChild(yearP);
+//           let yearP = document.createElement("p");
+//           yearP.textContent = "Release Year: " + albums[i].releaseYear;
+//           container.appendChild(yearP);
 
-          let ratingP = document.createElement("p");
-          ratingP.textContent = "Rating: " + albums[i].userRating;
-          container.appendChild(ratingP);
+//           let ratingP = document.createElement("p");
+//           ratingP.textContent = "Rating: " + albums[i].userRating;
+//           container.appendChild(ratingP);
 
-          albumDiv.appendChild(container);
-          albumList.appendChild(albumDiv);
-      }
-  }
+//           albumDiv.appendChild(container);
+//           albumList.appendChild(albumDiv);
+//       }
+//   }
+// });
+
+function createAlbumCard(album) {
+  var div = document.createElement("div");
+  div.className = "album-card";
+
+  var img = document.createElement("img");
+  img.src = album.imageURL;  // Replace placeholder with album.imageURL
+  img.alt = "Album Art";
+
+  var info = document.createElement("div");
+  info.className = "album-info";
+
+  var title = document.createElement("h3");
+  title.textContent = album.name;
+
+  var artist = document.createElement("p");
+  artist.textContent = album.artist;
+
+  var genre = document.createElement("p");
+  genre.textContent = album.genre;
+
+  var year = document.createElement("p");
+  year.textContent = album.releaseYear;
+
+  var rating = document.createElement("p");
+  rating.textContent = album.userRating;
+
+  info.appendChild(title);
+  info.appendChild(artist);
+  info.appendChild(genre);
+  info.appendChild(year);
+  info.appendChild(rating);
+
+  div.appendChild(img);
+  div.appendChild(info);
+
+  return div;
+}
+
+// event listener for monitoring user submission
+document.querySelector('form').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  var album = {
+      name: document.querySelector('input[name="album"]').value,
+      artist: document.querySelector('input[name="artist"]').value,
+      genre: document.querySelector('input[name="genre"]').value,
+      releaseYear: document.querySelector('input[name="year"]').value,
+      userRating: document.querySelector('input[name="rating"]:checked').value,
+      imageURL: document.querySelector('input[name="imgURL"]').value,
+  };
+
+  var albumList = document.querySelector('#albumList');
+  albumList.appendChild(createAlbumCard(album));
+  
+  document.querySelector('form').reset();
 });
+
+window.addEventListener("DOMContentLoaded", (event) => {
+let albums = localStorage.getItem("albums");
+if (albums) {
+  albums = JSON.parse(albums);
+  let albumList = document.getElementById("albumList");
+  for (let i = 0; i < albums.length; i++) {
+      albumList.appendChild(createAlbumCard(albums[i]));
+  }
+}
+});
+
 
   // MusicBrainz API settings for auto-generating album/artist lists
   function searchMusicBrainz(entity, query) {
