@@ -133,15 +133,6 @@ function createAlbumCard(album) {
   artist.textContent = album.artist;
   details.appendChild(artist);
 
-  // var genre = document.createElement("p");
-  // genre.className = "album-genre " + album.genre.toLowerCase();
-  // genre.textContent = album.genre;
-  // details.appendChild(genre);
-
-  // var year = document.createElement("p");
-  // year.textContent = album.releaseYear;
-  // details.appendChild(year);
-
   // create div container to hold these two elements, middle dot between
   var infoContainer = document.createElement("div");
   infoContainer.className = "info-container";
@@ -161,6 +152,7 @@ function createAlbumCard(album) {
 
   details.appendChild(infoContainer);
 
+  // 
   var ratingAndMore = document.createElement("div");
   ratingAndMore.className = "album-rating-more";
 
@@ -169,10 +161,46 @@ function createAlbumCard(album) {
 
   var moreButton = document.createElement("button");
   moreButton.textContent = "View More";
-  moreButton.onclick = function() { 
-      alert('User comment: ' + album.userComment + '\nDuration: ' + album.duration); 
+  moreButton.style.backgroundColor = "#161719"; 
+  moreButton.style.border = "none"; 
+  moreButton.style.color = "white";
+  moreButton.style.padding = "8px 22px"; 
+  moreButton.style.textAlign = "center"; 
+  moreButton.style.textDecoration = "none"; 
+  moreButton.style.display = "inline-block"; 
+  moreButton.style.fontSize = "12px"; 
+  moreButton.style.margin = "4px 2px"; 
+  moreButton.style.cursor = "pointer"; 
+  moreButton.type = "button"; // specify type "button" to prevent form submission
+
+
+  var moreDetails = document.createElement("div");
+  moreDetails.className = "more-details";
+  moreDetails.style.fontSize = "15px";
+  moreDetails.style.display = "none";
+
+  var userComment = document.createElement("p");
+  userComment.textContent = "User comment: " + album.userComment;
+  moreDetails.appendChild(userComment);
+
+  var duration = document.createElement("p");
+  duration.textContent = "Duration: " + album.duration;
+  moreDetails.appendChild(duration);
+
+
+// oneclick view more/view less control
+  moreButton.onclick = function() {
+    if (moreDetails.style.display === "none") {
+      moreDetails.style.display = "block";
+      moreButton.textContent = "View Less";
+    } else {
+      moreDetails.style.display = "none";
+      moreButton.textContent = "View More";
+    }
   };
+
   ratingAndMore.appendChild(moreButton);
+  ratingAndMore.appendChild(moreDetails);
 
   card.appendChild(cover);
   card.appendChild(details);

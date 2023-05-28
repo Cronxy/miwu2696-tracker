@@ -30,3 +30,7 @@ In my case, it is difficult to figure out a way to obtain these Spotify URLs bas
 10. Tried to fetch album cover picture url using (https://github.com/lacymorrow/album-art), but as it using Spotify API, the 'albumArt' call failed might because of authorization of the API credentials
 
 11. As the card content will be dynamiclly shown by the js code, initially it seems to be stuck on the same section, as the div with id="albumList" are siblings, not sure where the CSS code has conflict which forcing the list section to appear inside the form. 
+
+12. The /view more/ button is somehow linking with submit button as every time i clicked, it will jump to Album name and ask to fill out the field, need specifiying the button functionaility before
+
+13. View more/view less button

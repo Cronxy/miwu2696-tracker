@@ -163,6 +163,10 @@ textarea:focus {
   /* background: #b0a5a5; */
 }
 
+.album-card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
 .album-cover img {
   height: 100px;
   width: 100px;
@@ -206,3 +210,6 @@ textarea:focus {
 .album-genre.metal {
   background-color: #aa72b89d;
 }
+
+/* view more button */
+
