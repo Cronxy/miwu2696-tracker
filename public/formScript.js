@@ -108,6 +108,9 @@ if (albums) {
 }
 });
 
+
+
+// fx for generating album list card
 function createAlbumCard(album) {
   var card = document.createElement("div");
   card.className = "album-card";
@@ -115,7 +118,50 @@ function createAlbumCard(album) {
   var deleteCheckbox = document.createElement("input");
   deleteCheckbox.type = "checkbox";
   deleteCheckbox.className = "delete-checkbox";
+  // deleteCheckbox.style.display = "none";
   card.appendChild(deleteCheckbox);
+
+// delete event listener
+var deleteButton = document.createElement("button");
+deleteButton.type = "button";
+  deleteButton.textContent = "🗑️ DELETE";
+  deleteButton.style.display = "none"; // hide the delete button initially
+  card.appendChild(deleteButton);
+
+  deleteCheckbox.addEventListener('change', function() {
+    if(deleteCheckbox.checked) {
+      deleteButton.style.display = "block";
+    } else {
+      deleteButton.style.display = "none";
+    }
+  });
+
+  deleteButton.addEventListener('click', function() {
+    // get albums from local storage
+    let albums = localStorage.getItem('albums');
+    if (albums) {
+        albums = JSON.parse(albums);
+    } else {
+        albums = [];
+    }
+  
+    // find album in list by id
+    var index = albums.findIndex(function(item) {
+      return item.id === album.id;
+    });
+  
+    if (index > -1) {
+      // remove album from list
+      albums.splice(index, 1);
+  
+      // update local storage
+      localStorage.setItem('albums', JSON.stringify(albums));
+  
+      // remove card from DOM
+      card.remove();
+      alert("💿🎧Goodbye! This album has hit the road, but there will always have the memories.");
+    }
+  });
 
   var cover = document.createElement("div");
   cover.className = "album-cover";
@@ -136,6 +182,7 @@ function createAlbumCard(album) {
   artist.textContent = album.artist;
   details.appendChild(artist);
 
+  // create div container to hold these two elements, middle dot between
   var infoContainer = document.createElement("div");
   infoContainer.className = "info-container";
 
@@ -154,6 +201,7 @@ function createAlbumCard(album) {
 
   details.appendChild(infoContainer);
 
+  // 
   var ratingAndMore = document.createElement("div");
   ratingAndMore.className = "album-rating-more";
 
@@ -172,7 +220,8 @@ function createAlbumCard(album) {
   moreButton.style.fontSize = "12px"; 
   moreButton.style.margin = "4px 2px"; 
   moreButton.style.cursor = "pointer"; 
-  moreButton.type = "button"; 
+  moreButton.type = "button"; // specify type "button" to prevent form submission
+
 
   var moreDetails = document.createElement("div");
   moreDetails.className = "more-details";
@@ -187,6 +236,8 @@ function createAlbumCard(album) {
   duration.textContent = "Duration: " + album.duration;
   moreDetails.appendChild(duration);
 
+
+// oneclick view more/view less control
   moreButton.onclick = function() {
     if (moreDetails.style.display === "none") {
       moreDetails.style.display = "block";
@@ -207,6 +258,14 @@ function createAlbumCard(album) {
   return card;
 }
 
+
+
+
+
+
+
+
+
 // fx for showing star rating in album list
 function createStarRating(rating) {
   var starContainer = document.createElement('div');
@@ -225,8 +284,6 @@ function createStarRating(rating) {
 
   return starContainer;
 }
-
-
 
 // MusicBrainz API settings for auto-generating album/artist lists
   function searchMusicBrainz(entity, query) {
