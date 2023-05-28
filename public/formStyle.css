@@ -110,7 +110,7 @@ textarea:focus {
   box-shadow: 0 0 4px rgba(255, 255, 255, 0.5);
 }
 
-/*star rating */
+/*star rating in form*/
 .star-rating {
     direction: rtl;
     display: inline-block;
@@ -133,6 +133,10 @@ textarea:focus {
 .star-rating input:checked ~ label {
     color: #242323;  
 }
+
+/*  */
+/* user rating in star form in list */
+
 
 /* targting the duration label*/
 /* .input-group input:nth-child(1):focus + label,

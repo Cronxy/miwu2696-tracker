@@ -77,107 +77,6 @@ window.addEventListener("DOMContentLoaded", (event) => {
   }
 });
 
-// generating album list card
-// window.addEventListener("DOMContentLoaded", (event) => {
-//   let albums = localStorage.getItem("albums");
-//   if (albums) {
-//       albums = JSON.parse(albums);
-//       let albumList = document.getElementById("albumList");
-//       for (let i = 0; i < albums.length; i++) {
-//           let albumDiv = document.createElement("div");
-//           albumDiv.className = "album-card";
-
-//           let coverImg = document.createElement("img");
-//           coverImg.src = albums[i].imageURL;
-//           albumDiv.appendChild(coverImg);
-
-//           let container = document.createElement("div");
-//           container.className = "container";
-
-//           let titleH2 = document.createElement("h2");
-//           titleH2.textContent = albums[i].name;
-//           container.appendChild(titleH2);
-
-//           let artistP = document.createElement("p");
-//           artistP.textContent = "Artist: " + albums[i].artist;
-//           container.appendChild(artistP);
-
-//           let genreP = document.createElement("p");
-//           genreP.textContent = "Genre: " + albums[i].genre;
-//           container.appendChild(genreP);
-
-//           let yearP = document.createElement("p");
-//           yearP.textContent = "Release Year: " + albums[i].releaseYear;
-//           container.appendChild(yearP);
-
-//           let ratingP = document.createElement("p");
-//           ratingP.textContent = "Rating: " + albums[i].userRating;
-//           container.appendChild(ratingP);
-
-//           albumDiv.appendChild(container);
-//           albumList.appendChild(albumDiv);
-//       }
-//   }
-// });
-
-function createAlbumCard(album) {
-  var card = document.createElement("div");
-  card.className = "album-card";
-
-  var cover = document.createElement("div");
-  cover.className = "album-cover";
-
-  var img = document.createElement("img");
-  img.src = album.imageURL;
-  img.alt = "Album Art";
-  cover.appendChild(img);
-
-  var details = document.createElement("div");
-  details.className = "album-details";
-
-  var title = document.createElement("h3");
-  title.textContent = album.name;
-  details.appendChild(title);
-
-  var artist = document.createElement("p");
-  artist.textContent = album.artist;
-  details.appendChild(artist);
-
-  // var genre = document.createElement("p");
-  // genre.className = "album-genre";
-  // genre.textContent = album.genre;
-  // details.appendChild(genre);
-
-  var genre = document.createElement("p");
-  genre.className = "album-genre " + album.genre.toLowerCase();
-  genre.textContent = album.genre;
-  details.appendChild(genre);
-
-  var year = document.createElement("p");
-  year.textContent = album.releaseYear;
-  details.appendChild(year);
-
-  var ratingAndMore = document.createElement("div");
-  ratingAndMore.className = "album-rating-more";
-
-  var rating = document.createElement("p");
-  rating.textContent = album.userRating;
-  ratingAndMore.appendChild(rating);
-
-  var moreButton = document.createElement("button");
-  moreButton.textContent = "View More";
-  moreButton.onclick = function() { 
-      alert('User comment: ' + album.userComment + '\nDuration: ' + album.duration); 
-  };
-  ratingAndMore.appendChild(moreButton);
-
-  card.appendChild(cover);
-  card.appendChild(details);
-  card.appendChild(ratingAndMore);
-
-  return card;
-}
-
 
 // event listener for monitoring user submission
 document.querySelector('form').addEventListener('submit', function(e) {
@@ -210,7 +109,100 @@ if (albums) {
 });
 
 
-  // MusicBrainz API settings for auto-generating album/artist lists
+// fx for generating album list card
+function createAlbumCard(album) {
+  var card = document.createElement("div");
+  card.className = "album-card";
+
+  var cover = document.createElement("div");
+  cover.className = "album-cover";
+
+  var img = document.createElement("img");
+  img.src = album.imageURL;
+  img.alt = "Album Art";
+  cover.appendChild(img);
+
+  var details = document.createElement("div");
+  details.className = "album-details";
+
+  var title = document.createElement("h3");
+  title.textContent = album.name;
+  details.appendChild(title);
+
+  var artist = document.createElement("p");
+  artist.textContent = album.artist;
+  details.appendChild(artist);
+
+  // var genre = document.createElement("p");
+  // genre.className = "album-genre " + album.genre.toLowerCase();
+  // genre.textContent = album.genre;
+  // details.appendChild(genre);
+
+  // var year = document.createElement("p");
+  // year.textContent = album.releaseYear;
+  // details.appendChild(year);
+
+  // create div container to hold these two elements, middle dot between
+  var infoContainer = document.createElement("div");
+  infoContainer.className = "info-container";
+
+  var genre = document.createElement("span");
+  genre.className = "album-genre " + album.genre.toLowerCase();
+  genre.textContent = album.genre;
+  infoContainer.appendChild(genre);
+
+  var dot = document.createElement("span");
+  dot.textContent = " · ";
+  infoContainer.appendChild(dot);
+
+  var year = document.createElement("span");
+  year.textContent = album.releaseYear;
+  infoContainer.appendChild(year);
+
+  details.appendChild(infoContainer);
+
+  var ratingAndMore = document.createElement("div");
+  ratingAndMore.className = "album-rating-more";
+
+  var rating = createStarRating(album.userRating);
+  details.appendChild(rating);
+
+  var moreButton = document.createElement("button");
+  moreButton.textContent = "View More";
+  moreButton.onclick = function() { 
+      alert('User comment: ' + album.userComment + '\nDuration: ' + album.duration); 
+  };
+  ratingAndMore.appendChild(moreButton);
+
+  card.appendChild(cover);
+  card.appendChild(details);
+  card.appendChild(ratingAndMore);
+
+  return card;
+}
+
+// fx for showing star rating in album list
+function createStarRating(rating) {
+  var starContainer = document.createElement('div');
+  starContainer.className = "star-container";
+
+  for (var i = 1; i <= 5; i++) {
+      var star = document.createElement('span');
+      star.textContent = '★'; 
+      if (i <= rating) {
+          star.style.color = '#FFD700'; 
+      } else {
+          star.style.color = '#ccc';
+      }
+      starContainer.appendChild(star);
+  }
+
+  return starContainer;
+}
+
+
+
+// MusicBrainz API settings for auto-generating album/artist lists
   function searchMusicBrainz(entity, query) {
     fetch(`https://musicbrainz.org/ws/2/${entity}?query=${query}&fmt=json`)
         .then(response => response.json())
