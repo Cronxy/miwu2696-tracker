@@ -424,7 +424,6 @@ top: 10%; /* to prevent the header covering the grid content */
   right: 2%;
 }
 
-/* cubic beziers http://cubic-bezier.com/ */
 .close-icon div {
     display: block;
     height: 3px;
