@@ -83,12 +83,13 @@ document.querySelector('form').addEventListener('submit', function(e) {
   e.preventDefault();
 
   var album = {
-      name: document.querySelector('input[name="album"]').value,
-      artist: document.querySelector('input[name="artist"]').value,
-      genre: document.querySelector('input[name="genre"]').value,
-      releaseYear: document.querySelector('input[name="year"]').value,
+      name: document.getElementById("albumName").value,
+      artist: document.getElementById("artistName").value,
+      genre: document.getElementById("genre").value,
+      releaseYear: document.getElementById("releaseYear").value,
       userRating: document.querySelector('input[name="rating"]:checked').value,
-      imageURL: document.querySelector('input[name="imgURL"]').value,
+    
+    
   };
 
   var albumList = document.querySelector('#albumList');
@@ -121,13 +122,16 @@ function createAlbumCard(album) {
   // deleteCheckbox.style.display = "none";
   card.appendChild(deleteCheckbox);
 
-// delete event listener
+// delete button styling
 var deleteButton = document.createElement("button");
 deleteButton.type = "button";
   deleteButton.textContent = "🗑️ DELETE";
+  deleteButton.style.color = "red"
+  deleteButton.style.backgroundColor = "#161719"
   deleteButton.style.display = "none"; // hide the delete button initially
   card.appendChild(deleteButton);
 
+  // checkbox checked triggers delete button
   deleteCheckbox.addEventListener('change', function() {
     if(deleteCheckbox.checked) {
       deleteButton.style.display = "block";
@@ -136,8 +140,8 @@ deleteButton.type = "button";
     }
   });
 
+  // get albums from local storage
   deleteButton.addEventListener('click', function() {
-    // get albums from local storage
     let albums = localStorage.getItem('albums');
     if (albums) {
         albums = JSON.parse(albums);
@@ -166,6 +170,7 @@ deleteButton.type = "button";
   var cover = document.createElement("div");
   cover.className = "album-cover";
 
+  // default version of list album content
   var img = document.createElement("img");
   img.src = album.imageURL;
   img.alt = "Album Art";
@@ -182,7 +187,7 @@ deleteButton.type = "button";
   artist.textContent = album.artist;
   details.appendChild(artist);
 
-  // create div container to hold these two elements, middle dot between
+  // create div container to hold release year and genre, middle dot in between
   var infoContainer = document.createElement("div");
   infoContainer.className = "info-container";
 
@@ -201,7 +206,7 @@ deleteButton.type = "button";
 
   details.appendChild(infoContainer);
 
-  // 
+  // view more button and detailed version of album
   var ratingAndMore = document.createElement("div");
   ratingAndMore.className = "album-rating-more";
 
@@ -228,6 +233,7 @@ deleteButton.type = "button";
   moreDetails.style.fontSize = "15px";
   moreDetails.style.display = "none";
 
+  // define variable for duration and comment info
   var userComment = document.createElement("p");
   userComment.textContent = "User comment: " + album.userComment;
   moreDetails.appendChild(userComment);
@@ -248,6 +254,7 @@ deleteButton.type = "button";
     }
   };
 
+  // add to the list content
   ratingAndMore.appendChild(moreButton);
   ratingAndMore.appendChild(moreDetails);
 
@@ -257,12 +264,6 @@ deleteButton.type = "button";
 
   return card;
 }
-
-
-
-
-
-
 
 
 
@@ -285,7 +286,7 @@ function createStarRating(rating) {
   return starContainer;
 }
 
-// MusicBrainz API settings for auto-generating album/artist lists
+// MusicBrainz API setup for auto-generating album/artist lists
   function searchMusicBrainz(entity, query) {
     fetch(`https://musicbrainz.org/ws/2/${entity}?query=${query}&fmt=json`)
         .then(response => response.json())

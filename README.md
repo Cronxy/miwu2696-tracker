@@ -34,3 +34,6 @@ In my case, it is difficult to figure out a way to obtain these Spotify URLs bas
 12. The /view more/ button is somehow linking with submit button as every time i clicked, it will jump to Album name and ask to fill out the field, need specifiying the button functionaility before
 
 13. View more/view less button
+
+14. Global scope of defining a array. In delete button event listener, console log shown error of albumList isn't defined
+<!-- see doc for detailed explanations -->
