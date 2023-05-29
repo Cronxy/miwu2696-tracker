@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Digital Album Collection Library</title>
+    <link rel="stylesheet" type="text/css" href="combine.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+
+<!-- Adding the header -->
+<div class="sticky">
+  <div class="icon">☰</div>
+  <div class="title">
+    <b>Your digital album <br> collection library</b>
+  </div>
+  <input type="text" id="searchBar" class="hidden" placeholder="🔍Find anything?" />
+  <div class="icon" id="searchIcon">🔍</div>
+</div>
+
+<div class="grid">
+    <!--Left side-->
+    <div id="west" class="column effect-hover">
+      <div class="content">
+        <i class="fa fa-venus" aria-hidden="true"></i>
+        <h3>Add Something <span>NEW</span></h3>
+        <h4>Tryin' something new?</h4>
+        <p>😉Explore </p>
+      </div>		    
+    </div>
+    
+    <!--Right side-->
+    <div id="east" class="column effect-hover">
+      <div class="content">
+        <i class="fa fa-mars" aria-hidden="true"></i>
+        <h3>Viewing <span> ALBUM LIST</span></h3>
+        <h4>Your digital music collection</h4>
+        <h2>🎧</h2>
+      </div>			
+    </div>
+    
+    <!--Logo-->
+    <div class="logo">
+      <img src="pics/logo_white.png" />
+      </a>
+    </div>
+</div>
+
+
+  <!--Left side content-->
+  <div id="west-overlay" class="overlay">
+       <div class="grid">      
+         <div class="column">
+           <img src="pics/lucia-garo-gExmKBFk118-unsplash.jpg"/>
+         </div>       
+          <div class="column">  
+            <div class="product-content">
+               <!-- form started  -->
+                <form id="newAlbumForm">
+
+                    <!-- Album Name -->
+                <div class="input-group">
+                  <input type="text" id="albumName" name="albumName" class="custom-input" list="albumDataList" required aria-label="Album Name" aria-required="true">
+                  <label for="albumName">Album Name:</label>
+                </div>
+                <datalist id="albumDataList"></datalist>
+                
+                  <!-- Artist -->
+                  <div class="input-group">
+                    <input type="text" id="artistName" name="artistName" class="custom-input" list="artistList" required aria-label="Artist Name" aria-required="true">
+                    <label for="artistName">Artist:</label>
+                  </div>
+                  <datalist id="artistList"></datalist>
+                
+                  <!-- Release Year -->
+                  <div class="input-group">
+                    <input type="number" id="releaseYear" name="releaseYear" min="1900" max="2099" class="custom-input" required aria-label="Release Year" aria-required="true">
+                    <label for="releaseYear">Release Year:</label>
+                  </div>
+                
+                  <!-- Genre drop down menu -->
+                  <div class="input-group">
+                    <label for="genre"><b>Genre:</b></label>
+                    <select id="genre" name="genre" class="custom-input" required aria-label="Genre" aria-required="true">
+                      <option value="">Select a genre...</option>
+                      <option value="rock">🎸 Rock</option>
+                      <option value="pop">🎤 Pop</option>
+                      <option value="hiphop">🎧 Hip Hop</option>
+                      <option value="country">🤠 Country</option>
+                      <option value="jazz">🎷 Jazz</option>
+                      <option value="electronic">🔊 Electronic</option>
+                      <option value="metal">🤘 Metal</option>
+                    </select>
+                    
+                  </div>
+                
+                  <!-- Duration -->
+                  <div class="input-group">
+                    <input type="number" id="durationMin" name="durationMin" min="0" class="custom-input" placeholder="                            Minutes" required>
+                    <input type="number" id="durationSec" name="durationSec" min="0" max="59" class="custom-input" placeholder="Seconds" required>
+                    <label for="durationMin">Duration:</label>
+                  </div>
+                
+                  <!-- User Rating -->
+                  <label for="userRating"><b>User Rating:</b></label>
+                <div class="star-rating">
+                    <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="5 stars">&#9734;</label>
+                    <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="4 stars">&#9734;</label>
+                    <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="3 stars">&#9734;</label>
+                    <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="2 stars">&#9734;</label>
+                    <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="1 star">&#9734;</label>
+                </div><br>
+                
+                <!-- User Comment -->
+                <label for="userComment"><b>User Comment:</b></label>
+                    <textarea id="userComment" name="userComment" maxlength="100" placeholder="Write something about this album?"></textarea><br>
+                
+                <input type="submit" value="Submit">
+                <!--form ends  -->
+            </div>
+         </div>         
+       </div><!--End Grid-->
+    
+       <div class="close-icon">
+          <div></div>
+          <div></div>
+        </div> 
+  </div>
+
+  <!--Right side content-->
+  <div id="east-overlay" class="overlay">
+       <div class="grid">      
+         <div class="column">
+           <img src="pics/anne-nygard-EuMVFkzkYuU-unsplash.jpg"/>
+         </div>       
+          <div class="column">  
+              <!-- Album list simple set up -->
+                <h1>My Albums</h1>
+                <div id="albumList">
+                <!-- Album divs using JS code -->
+                </div>
+            </div>
+         </div>         
+       </div><!--End Grid-->
+    
+       <div class="close-icon">
+          <div></div>
+          <div></div>
+        </div> 
+  </div>
+
+  <script src="combine.js"></script>
+</body>
+</html>
