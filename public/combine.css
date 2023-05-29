@@ -9,7 +9,7 @@
     height:100%; 
     min-height:100%; 
   }
-  
+
   .half-width {
     float: left;
     margin-right: 5%;
@@ -188,7 +188,7 @@
 
   /* header formats */
   .sticky {
-    position: flex;
+    position: fixed;
     top: 0;
     width: 100%;
     background-color: #fff;
@@ -198,8 +198,9 @@
     align-items: center;
     padding: 0 15px;
     box-shadow: 0 4px 2px -2px rgba(0,0,0,0.1);
-    z-index: 3;
+    z-index: 100; /* as it need to appear both on landing and overlay contents */
   }
+  
   
   /* hidden search bar */
   .hidden {
@@ -229,10 +230,10 @@
   }
 
   .grid .column {
-    position: relative;
-    overflow: hidden;
+    /* position: relative;
+    overflow: hidden; */
     width: 50%;
-    text-align: center;
+    /* text-align: center; */
     cursor: pointer;
   }
 
@@ -249,7 +250,7 @@
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    padding: 2em;
+    padding: 10em;
     color: #fff;
     text-transform: uppercase;
     font-size: 1.3rem;
@@ -290,27 +291,20 @@
   .logo{
     display: inline;
     position: absolute;
-    top: 15%;
+    top: 12%;
     left:50%;
     text-align: center;
   }
+
   .logo img{
       max-width: 110px;
   }
-
-  /* a{
-    text-transform: uppercase;
-    font-size: .6rem;
-    text-decoration: none;
-    color: #FFF;
-    display: block;
-    font-family: sans-serif;
-  } */
 
   #west{
     background: url("pics/left_side.png") no-repeat center right;
     background-size: cover;
   }
+
   #east{
     background: url("pics/right_side.png") no-repeat center bottom;
     background-size: cover;
@@ -322,7 +316,6 @@
   }
 
   /* hover effects */
-  
   .effect-hover h3,
   .effect-hover h4,
   .effect-hover p,
@@ -343,7 +336,6 @@
       opacity: 0;
       -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
       transition: opacity 0.35s, transform 0.35s;
-    /* remove this bit if you want it to swing up */
       -webkit-transform: translate3d(-50%,-50%,0) rotate3d(0,0,1,-45deg) scale3d(0,0,1);
       transform: translate3d(-50%,-50%,0) rotate3d(0,0,1,-45deg) scale3d(0,0,1);
   }
@@ -411,6 +403,8 @@
   }
   .overlay .grid{
   background-color: #3B3F46;
+  overflow-y: auto; /* to contain all the info on album list page */
+  top: 10%; /* to prevent the header covering the grid content */
   }
 
   .overlay .column{
