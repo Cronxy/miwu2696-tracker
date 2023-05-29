@@ -41,31 +41,82 @@
     
     <!--Logo-->
     <div class="logo">
-      <!-- <a href="http://webdesignerwall.com/tutorials/lively-splitscreen-layout-css3-animations" target="_blank">View Tutorial</a> -->
       <img src="pics/logo_white.png" />
       </a>
     </div>
-    
-  </div>
-  
+</div>
+
+
   <!--Left side content-->
   <div id="west-overlay" class="overlay">
        <div class="grid">      
          <div class="column">
-           <img src="pics/lucia-garo-j3mTfAVZMos-unsplash.jpg"/>
+           <img src="pics/lucia-garo-gExmKBFk118-unsplash.jpg"/>
          </div>       
           <div class="column">  
             <div class="product-content">
-               <h1>Rainbow Chasers</h1>
-              <p>With these, you're the center of the Universe, floating in microgravity between distant stars. This is what you want.</p>
-              <div class="price">
-                <span class="currency">$</span>
-                <span class="amount">89.99</span>
-              </div>
-              <a href="#" class="buy-button">           
-                <span>Buy Me</span>
-              </a>
-              <div class="size-guide-link underline-link">Size guide</div>
+               <!-- form started  -->
+                <form id="newAlbumForm">
+
+                    <!-- Album Name -->
+                <div class="input-group">
+                  <input type="text" id="albumName" name="albumName" class="custom-input" list="albumDataList" required aria-label="Album Name" aria-required="true">
+                  <label for="albumName">Album Name:</label>
+                </div>
+                <datalist id="albumDataList"></datalist>
+                
+                  <!-- Artist -->
+                  <div class="input-group">
+                    <input type="text" id="artistName" name="artistName" class="custom-input" list="artistList" required aria-label="Artist Name" aria-required="true">
+                    <label for="artistName">Artist:</label>
+                  </div>
+                  <datalist id="artistList"></datalist>
+                
+                  <!-- Release Year -->
+                  <div class="input-group">
+                    <input type="number" id="releaseYear" name="releaseYear" min="1900" max="2099" class="custom-input" required aria-label="Release Year" aria-required="true">
+                    <label for="releaseYear">Release Year:</label>
+                  </div>
+                
+                  <!-- Genre drop down menu -->
+                  <div class="input-group">
+                    <label for="genre"><b>Genre:</b></label>
+                    <select id="genre" name="genre" class="custom-input" required aria-label="Genre" aria-required="true">
+                      <option value="">Select a genre...</option>
+                      <option value="rock">🎸 Rock</option>
+                      <option value="pop">🎤 Pop</option>
+                      <option value="hiphop">🎧 Hip Hop</option>
+                      <option value="country">🤠 Country</option>
+                      <option value="jazz">🎷 Jazz</option>
+                      <option value="electronic">🔊 Electronic</option>
+                      <option value="metal">🤘 Metal</option>
+                    </select>
+                    
+                  </div>
+                
+                  <!-- Duration -->
+                  <div class="input-group">
+                    <input type="number" id="durationMin" name="durationMin" min="0" class="custom-input" placeholder="                            Minutes" required>
+                    <input type="number" id="durationSec" name="durationSec" min="0" max="59" class="custom-input" placeholder="Seconds" required>
+                    <label for="durationMin">Duration:</label>
+                  </div>
+                
+                  <!-- User Rating -->
+                  <label for="userRating"><b>User Rating:</b></label>
+                <div class="star-rating">
+                    <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="5 stars">&#9734;</label>
+                    <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="4 stars">&#9734;</label>
+                    <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="3 stars">&#9734;</label>
+                    <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="2 stars">&#9734;</label>
+                    <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="1 star">&#9734;</label>
+                </div><br>
+                
+                <!-- User Comment -->
+                <label for="userComment"><b>User Comment:</b></label>
+                    <textarea id="userComment" name="userComment" maxlength="100" placeholder="Write something about this album?"></textarea><br>
+                
+                <input type="submit" value="Submit">
+                <!--form ends  -->
             </div>
          </div>         
        </div><!--End Grid-->
@@ -80,23 +131,17 @@
   <div id="east-overlay" class="overlay">
        <div class="grid">      
          <div class="column">
-           <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/927610/pexels-photo-14400.jpeg"/>
+           <img src="pics/anne-nygard-EuMVFkzkYuU-unsplash.jpg"/>
          </div>       
           <div class="column">  
-            <div class="product-content">
-               <h1>Path Makers</h1>
-              <p>With these, you're the center of the Universe, floating in microgravity between distant stars. This is what you want.</p>
-              <div class="price">
-                <span class="currency">$</span>
-                <span class="amount">149.99</span>
-              </div>
-              <a href="#" class="buy-button">           
-                <span>Buy Me</span>
-              </a>
-                 <div class="size-guide-link underline-link">Size guide</div>
+              <!-- Album list simple set up -->
+                <h1>My Albums</h1>
+                <div id="albumList">
+                <!-- Album divs using JS code -->
+                </div>
             </div>
          </div>         
-       </div><!--End Grid-->
+       <!-- </div>End Grid -->
     
        <div class="close-icon">
           <div></div>

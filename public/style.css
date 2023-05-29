@@ -10,26 +10,201 @@ html, body {
   min-height:100%; 
 }
 
+.half-width {
+  float: left;
+  margin-right: 5%;
+  width: 45%;
+}
+
+.custom-input {
+  border: none;
+  background: rgba(0, 0, 0, 0.25);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  width: 250px;
+  color: rgba(255, 255, 255, 0.75);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.45);
+  line-height: 1.5;
+  display: inline-block;
+  padding: 10px;
+  transition: all .3s ease-in-out;
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.input-group input + label {
+  display: inline-block;
+  background: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+  border-radius: 4px 0 0 4px;
+  color: rgba(255, 255, 255, 0.75);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.45);
+  line-height: 1.5;
+  padding: 10px;
+  position:absolute;
+  left: 0;
+  top: 0;
+  transition: all .3s ease-in;
+}
+
+.input-group input:focus {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+/* label stay aside if user entered any text */
+.input-group input:valid + label,
+.input-group input:focus + label {
+  box-shadow: 0 0 4px rgba(255, 255, 255, 0.5);
+  transform: translateX(-100%);
+}
+
+input[type="submit"] {
+  border: none;
+  background: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  color: rgba(255, 255, 255, 0.75);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.45);
+  line-height: 1.5;
+  padding: 10px;
+  width: 100%;
+  transition: all .3s ease-in-out;
+}
+
+/* some animation effects  */
+input[type="submit"]:hover, 
+input[type="submit"]:focus {
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 1px 3px rgba(255, 255, 255, 0.3), 0 1px rgba(255, 255, 255, 0.4);
+  color: #fff;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.45);
+}
+
+textarea {
+  border: none;
+  background: rgba(0, 0, 0, 0.25);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  color: rgba(255, 255, 255, 0.75);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.45);
+  line-height: 1.5;
+  display: inline-block;
+  padding: 10px;
+  width: 100%;
+  height: 150px;
+  transition: all .3s ease-in-out;
+}
+
+textarea:focus {
+  box-shadow: 0 0 4px rgba(255, 255, 255, 0.5);
+}
+
+/*star rating in form*/
+.star-rating {
+    direction: rtl;
+    display: inline-block;
+    padding: 20px 0;
+    font-size: 1.5em;
+}
+
+.star-rating input {
+    display: none;
+}
+
+.star-rating label {
+    color: #ccc;
+    cursor: pointer;
+}
+
+/* Color of the stars when hovered or checked */
+.star-rating label:hover, 
+.star-rating label:hover ~ label, 
+.star-rating input:checked ~ label {
+    color: #242323;  
+}
+
+/* album list view  */
+.album-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+.album-card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.album-cover img {
+  height: 100px;
+  width: 100px;
+}
+
+.album-details h3, .album-details p {
+  margin: 0;
+}
+
+/* genre background color identification */
+.album-genre {
+  padding: 2px 5px;
+  margin-top: 10px;
+  display: inline-block;
+}
+
+.album-genre.rock {
+  background-color: #a86a6a;
+}
+
+.album-genre.pop {
+  background-color: #b27e64;
+}
+
+.album-genre.hiphop {
+  background-color: #b085279d;
+}
+
+.album-genre.country {
+  background-color: #8490429d;
+}
+
+.album-genre.jazz {
+  background-color: #4d8e8a9d;
+}
+
+.album-genre.electronic {
+  background-color: #609cd49d;
+}
+
+.album-genre.metal {
+  background-color: #aa72b89d;
+}
+
 /* header formats */
 .sticky {
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: #ffffff;
+  background-color: #fff;
   height: 60px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 15px;
   box-shadow: 0 4px 2px -2px rgba(0,0,0,0.1);
-  z-index: 3;
-}
+  z-index: 100; /* as it need to appear both on landing and overlay contents */
+} 
 
 /* hidden search bar */
 .hidden {
   display: none;
 }
-
 
 .title {
   text-transform: uppercase;
@@ -42,40 +217,43 @@ html, body {
   font-size: 25px;
 }
 
-/* Layout */
+/* left/right grid Layout */
 .grid {
-    position: relative;
-  width: 100vw;
-  height: 100vh;
-    display: flex;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
+
 .grid .column {
-    position: relative;
-    overflow: hidden;
+  /* position: relative;
+  overflow: hidden; */
   width: 50%;
-    text-align: center;
-    cursor: pointer;
+  /* text-align: center; */
+  cursor: pointer;
 }
+
 .grid .column img {
-    position: relative;
-    display: block;
+  position: relative;
+  display: block;
   height: 100%;
   object-fit: cover;
-    width: 100%;
-    opacity: 0.8;
+  width: 100%;
+  opacity: 0.8;
 }
+
 .grid .column .content {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-    padding: 2em;
-    color: #fff;
-    text-transform: uppercase;
-    font-size: 1.3rem;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
+  padding: 10em;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 1.3rem;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -84,7 +262,7 @@ html, body {
 
 .grid .column .content::before,
 .grid .column .content::after {
-    pointer-events: none;
+  pointer-events: none;
 }
 
 .grid .column h2 {
@@ -94,13 +272,13 @@ html, body {
 
 .grid .column h2 span {
   display: block;
-    font-weight: 800;
+  font-weight: 800;
   font-size: 2.8rem;
 }
 
 .grid .column h2,
 .grid .column p {
-    margin: 0;
+  margin: 0;
 }
 
 .grid .column p {
@@ -111,39 +289,31 @@ html, body {
 .logo{
   display: inline;
   position: absolute;
-  top: 15%;
+  top: 12%;
   left:50%;
   text-align: center;
 }
+
 .logo img{
     max-width: 110px;
 }
-a{
-  text-transform: uppercase;
-  font-size: .6rem;
-  text-decoration: none;
-  color: #FFF;
-  display: block;
-  font-family: sans-serif;
-}
+
 #west{
   background: url("pics/left_side.png") no-repeat center right;
   background-size: cover;
 }
+
 #east{
   background: url("pics/right_side.png") no-repeat center bottom;
   background-size: cover;
 }
-/* #west .content{
-  background: rgba(60, 65, 60, 0.5);
-} */
+
+/* landing filter for pic */
 #east .content{
   background: rgba(32, 28, 28, 0.5);
-  
 }
-/*-----------------*/
-/***** Hover *****/
-/*-----------------*/
+
+/* hover effects */
 .effect-hover h3,
 .effect-hover h4,
 .effect-hover p,
@@ -164,11 +334,11 @@ a{
     opacity: 0;
     -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
     transition: opacity 0.35s, transform 0.35s;
-  /* remove this bit if you want it to swing up */
     -webkit-transform: translate3d(-50%,-50%,0) rotate3d(0,0,1,-45deg) scale3d(0,0,1);
     transform: translate3d(-50%,-50%,0) rotate3d(0,0,1,-45deg) scale3d(0,0,1);
 }
 
+/* some transition/effects using webkit */
 .effect-hover p:hover,
 .effect-hover p:focus {
     opacity: 0.6;
@@ -202,6 +372,7 @@ a{
     transform: scale3d(2.5,2.5,2);
 }
 
+
 /* Overlays */
 .overlay{
   position: absolute;
@@ -214,131 +385,36 @@ a{
   display: none;
   z-index: 99;
   overflow-x: hidden;
-  background: #eee; 
+  overflow-y: auto; /* Make the overlay page scrollable */
+  background: #fff; 
 }
 
 /* header overlay index change */
 #west-overlay, #east-overlay {
-  z-index: 2; /* Add this line */
+  z-index: 2; 
 }
 
-/* Block works too, but flex is more...flexible */
+/* overlay grid */
 .overlay.open{
   display: flex;
+  width: 100%;
+  height: 100%; /* Set full width and height for overlay */
   background-color: transparent;
 }
 .overlay .grid{
-background-color: #f4f4f4;
+background-color: #3B3F46;
+overflow-y: auto; /* to contain all the info on album list page */
+top: 10%; /* to prevent the header covering the grid content */
 }
+
 .overlay .column{
   display: flex;
-  height: 100%;
-  align-items: center;
-  justify-content: center;
-}
-.overlay img{vertical-align: bottom;}
-.product-content{
-
-  align-content: center;
-  justify-content: center;
-  font-size: 1.4rem;
- max-width: 400px;
-}
-.price{
-  color: #34d5cf;
-  margin: 1vw 0;
-}
-.currency{
-  font-weight: 700;
-  font-size: 1rem;
-}
-.amount{
-  font-size: 1.6rem;
-  vertical-align: top;
-  font-family: sans-serif;
-}
-/* button */
-.buy-button{
-    height: 50px;
-    margin: 2rem 0;
-    position: relative;
-    background: #eee;
-    border: 3px solid #f9efb2;
-}
-.buy-button > span {
-  display: block;
-  position: relative;
-  font-weight: 700;
-  font-size: 1rem;
-  text-transform: uppercase;
-  color: #1f1f22;
-  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
-    transition: opacity 0.35s, transform 0.35s;
-  z-index: 10;
-  line-height: 60px;
+  /* height: flex; */
+  align-items: top;
+  justify-content: center;/* to make the 'album list' on the top of the page */
 }
 
-.buy-button::after, .buy-button::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    border: 3px solid #f9efb2;
-    -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
-    transition: opacity 0.35s, transform 0.35s, ease-in-out .3s;
-}
-.buy-button::before {
-    background: #FFF;
-    margin: 0px 0 0 0px;
-    top: 5px;
-    left: 5px;
-    width: calc(100% + 2px);
-    height: calc(100% + 2px);
-    z-index: 1;
-}
-
-.buy-button:hover span,
-.buy-button:hover::before {
-    transform: translate3d(-4px, -4px, 0px);
-}
-.buy-button:hover::before{
-  background: #f9efb2;
-}
-.size-guide-link {
-    display: inline-block;
-    font-weight: 500;
-    cursor: pointer;
-    font-size: .8rem;
-}
-.underline-link {
-    overflow: hidden;
-    padding-bottom: .5vh;
-    position: relative;
-}
-.underline-link::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background: #202023;
-    -webkit-transform-origin: left;
-    transform-origin: left;
-    -webkit-transform: scaleX(0);
-    transform: scaleX(0);
-    -webkit-transition: -webkit-transform .2s ease-in-out;
-    transition: transform .2s ease-in-out;
-    
-}
-.underline-link.active::before,
-.underline-link.hovered::before,
-.underline-link:hover::before {
-    -webkit-transform: scaleX(1);
-    transform: scaleX(1);    
-}
 /* Close Icon animated */
-/* Thanks to @arthurhamon */
 .close-icon{
   width: 36px;
   height: 36px;
@@ -347,7 +423,8 @@ background-color: #f4f4f4;
   top: 13%;
   right: 2%;
 }
-/* Test your cubic beziers here http://cubic-bezier.com/ */
+
+/* cubic beziers http://cubic-bezier.com/ */
 .close-icon div {
     display: block;
     height: 3px;
@@ -377,16 +454,16 @@ background-color: #f4f4f4;
     width: 100%;
 }
 
-/* Now you see it */
+/* close icon visibility before */
 .close-icon div::before {
-    background: none repeat scroll 0 0 #34d5cf;
+  background: none repeat scroll 0 0 #34d5cf;
     opacity: 1;
     transform: translate3d(0px, 0px, 0px);
 }
 
-/* Now you don't */
+/* close icon hidden */
 .close-icon div::after {
-    background: none repeat scroll 0 0 #ead918;
+  background: none repeat scroll 0 0 #ead918;
     opacity: 0;
     transform: translate3d(100%, 0px, 0px);
 }
@@ -397,4 +474,72 @@ background-color: #f4f4f4;
 .close-icon:hover div::after {
     opacity: 1;
     transform: translate3d(0px, 0px, 0px);
+}
+
+
+
+/* responsive design for smaller screens */
+@media only screen and (max-width: 600px) {
+  body {
+    padding: 20px;
+    font-size: 14px;
+  }
+
+  .half-width {
+    float: none;
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .custom-input {
+    width: 100%;
+  }
+
+  .input-group input + label {
+    width: 100%;
+    padding: 5px;
+  }
+
+  input[type="submit"] {
+    padding: 8px;
+  }
+
+  .album-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .album-cover img {
+    width: 80%;
+    margin: auto;
+  }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+  body {
+    padding: 30px;
+    font-size: 14px;
+  }
+
+  .half-width {
+    width: 70%;
+    margin-right: 5%;
+  }
+
+  .custom-input {
+    width: 80%;
+  }
+
+  .input-group input + label {
+    padding: 5px;
+  }
+
+  .album-card {
+    padding: 15px;
+  }
+
+  .album-cover img {
+    width: 80px;
+    height: 80px;
+  }
 }

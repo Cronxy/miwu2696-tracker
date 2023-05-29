@@ -243,7 +243,7 @@ deleteButton.type = "button";
   title.textContent = album.name;
   details.appendChild(title);
 
-  var artist = document.createElement("p");
+  var artist = document.createElement("h5");
   artist.textContent = album.artist;
   details.appendChild(artist);
 
@@ -351,7 +351,7 @@ function createStarRating(rating) {
     fetch(`https://musicbrainz.org/ws/2/${entity}?query=${query}&fmt=json`)
         .then(response => response.json())
         .then(data => {
-            let datalistId = (entity === "artist") ? 'artistList' : 'albumList';
+            let datalistId = (entity === "artist") ? 'artistList' : 'albumDataList';  // changed 'albumList' to 'albumDataList'
             const datalist = document.getElementById(datalistId);
             datalist.innerHTML = '';
             let options = (entity === "artist") ? data.artists : data.releases;
@@ -367,6 +367,6 @@ function createStarRating(rating) {
         .catch(error => {
             console.error('Error:', error);
         });
-  }
-  
+}
+
   

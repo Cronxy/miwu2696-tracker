@@ -199,14 +199,12 @@
     padding: 0 15px;
     box-shadow: 0 4px 2px -2px rgba(0,0,0,0.1);
     z-index: 100; /* as it need to appear both on landing and overlay contents */
-  }
-  
+  } 
   
   /* hidden search bar */
   .hidden {
     display: none;
   }
-  
   
   .title {
     text-transform: uppercase;
@@ -264,7 +262,7 @@
   
   .grid .column .content::before,
   .grid .column .content::after {
-      pointer-events: none;
+    pointer-events: none;
   }
   
   .grid .column h2 {
@@ -274,13 +272,13 @@
   
   .grid .column h2 span {
     display: block;
-      font-weight: 800;
+    font-weight: 800;
     font-size: 2.8rem;
   }
   
   .grid .column h2,
   .grid .column p {
-      margin: 0;
+    margin: 0;
   }
   
   .grid .column p {
@@ -340,6 +338,7 @@
       transform: translate3d(-50%,-50%,0) rotate3d(0,0,1,-45deg) scale3d(0,0,1);
   }
   
+  /* some transition/effects using webkit */
   .effect-hover p:hover,
   .effect-hover p:focus {
       opacity: 0.6;
@@ -373,6 +372,7 @@
       transform: scale3d(2.5,2.5,2);
   }
   
+
   /* Overlays */
   .overlay{
     position: absolute;
@@ -410,19 +410,10 @@
   .overlay .column{
     display: flex;
     /* height: flex; */
-    align-items: center;
-    justify-content: center;
+    align-items: top;
+    justify-content: center;/* to make the 'album list' on the top of the page */
   }
-
-  .overlay img{vertical-align: bottom;}
-  .product-content{
-    align-content: left;
-    justify-content: left;
-    /* font-size: 1.4rem; */
-    /* max-width: 400px; */
-  }
-
-
+ 
   /* Close Icon animated */
   .close-icon{
     width: 36px;
@@ -483,4 +474,72 @@
   .close-icon:hover div::after {
       opacity: 1;
       transform: translate3d(0px, 0px, 0px);
+  }
+
+
+
+  /* responsive design for smaller screens */
+@media only screen and (max-width: 600px) {
+    body {
+      padding: 20px;
+      font-size: 14px;
+    }
+  
+    .half-width {
+      float: none;
+      width: 100%;
+      margin-right: 0;
+    }
+  
+    .custom-input {
+      width: 100%;
+    }
+  
+    .input-group input + label {
+      width: 100%;
+      padding: 5px;
+    }
+  
+    input[type="submit"] {
+      padding: 8px;
+    }
+  
+    .album-card {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .album-cover img {
+      width: 80%;
+      margin: auto;
+    }
+  }
+  
+  @media only screen and (min-width: 601px) and (max-width: 1024px) {
+    body {
+      padding: 30px;
+      font-size: 14px;
+    }
+  
+    .half-width {
+      width: 70%;
+      margin-right: 5%;
+    }
+  
+    .custom-input {
+      width: 80%;
+    }
+  
+    .input-group input + label {
+      padding: 5px;
+    }
+  
+    .album-card {
+      padding: 15px;
+    }
+  
+    .album-cover img {
+      width: 80px;
+      height: 80px;
+    }
   }

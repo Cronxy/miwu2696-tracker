@@ -1,6 +1,7 @@
 # miwu2696-tracker
 Using for DECO2017 final tracking website prototype
 
+## to see the updated album list, reload the page (if once not work try twice thanks)
 1. Change of landing page format
 A clear website heirarchy to allow the user to easily walk through the website
 
@@ -37,3 +38,5 @@ In my case, it is difficult to figure out a way to obtain these Spotify URLs bas
 
 14. Global scope of defining a array. In delete button event listener, console log shown error of albumList isn't defined
 <!-- see doc for detailed explanations -->
+
+15. Using animate.css for overlay content open/close for better user experience and also make the website more interesting to interact with. (https://github.com/daneden/animate.css)
