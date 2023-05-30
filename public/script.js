@@ -100,9 +100,10 @@ document.getElementById("newAlbumForm").addEventListener("submit", function (e) 
       releaseYear: document.getElementById("releaseYear").value,
       genre: document.getElementById("genre").value,
       duration: minutes + " min " + seconds + " sec",
-      imageURL: "./genre_pics/" + document.getElementById("genre").value.toLowerCase() + ".png",
+      imageURL: "/public/genre_pics/" + document.getElementById("genre").value.toLowerCase() + ".png",
       userRating: document.querySelector('input[name="rating"]:checked').value,
       userComment: document.getElementById("userComment").value,
+      
   };
 
     // Save album to local storage

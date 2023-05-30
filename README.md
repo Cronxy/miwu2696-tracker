@@ -2,6 +2,8 @@
 
 _**A friendly remind: To see the updated album list, reload the page (if not work try twice thanks:)**_
 
+_**Please see index.html as the main file, the form_test is my test file for the form**_
+
 ## Website feature and walkthrough 
 
 Upon entering the website, the user will be greeted by a title that reads "Your digital album collection library", hinting at the website's purpose. The page is neatly divided into two sections, each with interactive visuals. <br>
@@ -90,6 +92,8 @@ Tried to use ```document.getElementById``` instead of ```document.querySelector`
 *__Using pop-up notification instead of js built-in alert__ <br>
 * Further consideration: Alerts are quite basic and disruptive in terms of visual aesthetics and user experience. It interrupts users, preventing them from interacting with the website until they acknowledge the alert, which can lead to a poor user experience. 
 
+*__Testing run on the local server using ```npm run dev```__<br> when running on the local server the album genre picture failed to load in the list, but the picture loading and showing correctly when running on the web preview tab. No error message on the console found. 
+* change the ```let server = app.listen(8888, function())``` into the ```app.listen(1234. function())``` STILL NOT WORKING :(
 
 # References
 
