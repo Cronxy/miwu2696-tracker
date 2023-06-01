@@ -25,6 +25,9 @@ Once all fields are filled, hit "Submit" to add the album to your collection. Th
 The right section, labelled "Viewing ALBUM LIST", allows to view the existing digital music collection in a list form. User should be able to view the album item in short/long versions using the ‘View more/less’ button. <br>
 
 *__Responsive Design:__ Throughout the experience, the website adjusts accordingly to the screen size, providing a consistent and enjoyable user experience as the grid-based design. <br><br>
+- For screens with a maximum width of 600px (smartphones mainly), changing some padding and font sizes, and changes flex-direction of the album card to column for a better mobile view.
+
+- For screens with a width between 601px and 1024px (like tablets), adapting the half-width class and input label padding for a better appearance. 
 
 
 ## Coding development for DECO2017 prototype 
